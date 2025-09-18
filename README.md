@@ -1,5 +1,5 @@
-<h1 align="center">INVENTORY_SERVICE</h1>h1>
-**<i align="center">Empowering Seamless Inventory,Acceleration Business Growth</i>
+<h1 align="center">INVENTORY_SERVICE</h1>
+<p><i align="center">Empowering Seamless Inventory,Acceleration Business Growth</i></p>
 ## 
 <p><i align="center">Built with the tools and technology</i></p>
 ##
