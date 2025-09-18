@@ -3,7 +3,7 @@
 ## 
 <p><i align="center">Built with the tools and technology</i></p>
 ##
-**<b align="start">Table of content</b>
+<b align="start">Table of content</b>
 ##
 <ul>
   <li>Overview</li>
