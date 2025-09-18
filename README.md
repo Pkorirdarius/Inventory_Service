@@ -1,19 +1,19 @@
-##INVENTORY_SERVICE
+<h1 align="center">INVENTORY_SERVICE</h1>h1>
 **<i align="center">Empowering Seamless Inventory,Acceleration Business Growth</i>
 ## 
 <p><i align="center">Built with the tools and technology</i></p>
 ##
 **<b align="start">Table of content</b>
 ##
-<ol>
+<ul>
   <li>Overview</li>
   <li>Getting started</li>
-  <ol>
+  <ul>
     <li>Prerequisites</li>
     <li>Installation</li>
     <li>Usage</li>
     <li>Testing</li>
-  </ol>
-</ol>
+  </ul>
+</ul>
 
 ##
