@@ -1,113 +1,299 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INVENTORY_SERVICE</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-    }
-    h1, h2 {
-      color: #1a1a1a;
-    }
-    h1 {
-      font-size: 2.5em;
-      text-align: center;
-    }
-    p {
-      text-align: center;
-      font-style: italic;
-      margin-top: -10px;
-    }
-    .badges, .tools {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .badges img, .tools img {
-      margin: 0 5px;
-      vertical-align: middle;
-    }
-    .toc {
-      margin-top: 40px;
-    }
-    .toc h2 {
-      margin-bottom: 10px;
-    }
-    .toc ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .toc ul li {
-      margin: 5px 0;
-    }
-    .toc ul li a {
-      text-decoration: none;
-      color: #0366d6;
-    }
-    .toc ul li a:hover {
-      text-decoration: underline;
-    }
-    section {
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-  <h1>INVENTORY_SERVICE</h1>
-  <p>Empowering Seamless Inventory, Accelerating Business Growth</p>
+# INVENTORY_SERVICE
 
-  <div class="badges">
-    <img src="https://img.shields.io/badge/last%20commit-today-brightgreen" alt="last commit">
-    <img src="https://img.shields.io/badge/python-64.2%25-blue" alt="python percentage">
-    <img src="https://img.shields.io/badge/languages-2-orange" alt="languages count">
-  </div>
+> **Empowering Seamless Inventory, Accelerating Business Growth**
 
-  <p><em>Built with the tools and technologies:</em></p>
-  <div class="tools">
-    <img src="https://img.shields.io/badge/Docker-blue?logo=docker&logoColor=white" alt="Docker">
-    <img src="https://img.shields.io/badge/Python-blue?logo=python&logoColor=white" alt="Python">
-  </div>
+![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-green?logo=flask&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?logo=mysql&logoColor=white)
 
-  <div class="toc">
-    <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#getting-started">Getting Started</a>
-        <ul>
-          <li><a href="#prerequisites">Prerequisites</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+A lightweight, containerized Flask REST API service for inventory management, designed to streamline and automate inventory processes for businesses of all sizes.
 
-  <section id="overview">
-    <h2>Overview</h2>
-    <p>
-      <strong>INVENTORY_SERVICE</strong> is designed to streamline and automate inventory 
-      management processes for businesses of all sizes. It empowers organizations to track 
-      stock levels, manage supplies, and optimize inventory workflows, ultimately improving 
-      efficiency and accelerating business growth.
-    </p>
-  </section>
+## 📋 Table of Contents
 
-  <section id="getting-started">
-    <h2>Getting Started</h2>
-    <p>
-      Follow these instructions to set up the project locally and start using the service. 
-      The guide assumes you have basic knowledge of Docker and Python.
-    </p>
-  </section>
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Docker Deployment](#docker-deployment)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-  <section id="prerequisites">
-    <h2>Prerequisites</h2>
-    <ul>
-      <li>Python 3.8 or higher installed on your machine</li>
-      <li>Docker installed and running</li>
-      <li>Git for cloning the repository</li>
-    </ul>
-  </section>
-</body>
-</html>
+## 🎯 Overview
+
+**INVENTORY_SERVICE** is a REST API service built with Flask that provides core inventory management functionality. It enables organizations to track stock levels, manage product information, and optimize inventory workflows through a simple and efficient API interface.
+
+## ✨ Features
+
+- **Product Management**: Add and retrieve product information
+- **Stock Tracking**: Monitor inventory levels in real-time
+- **RESTful API**: Clean and intuitive API endpoints
+- **Containerized**: Docker support for easy deployment
+- **Database Integration**: MySQL database for persistent storage
+- **Lightweight**: Minimal overhead with Flask framework
+
+## 🛠 Tech Stack
+
+- **Backend**: Python 3.10, Flask
+- **Database**: MySQL
+- **Containerization**: Docker
+- **Environment**: Python 3.10 Slim (Debian Bullseye)
+
+## 📋 Prerequisites
+
+Before running this application, ensure you have the following installed:
+
+- **Python 3.8+** - [Download Python](https://www.python.org/downloads/)
+- **Docker** - [Install Docker](https://docs.docker.com/get-docker/)
+- **MySQL** - [Install MySQL](https://dev.mysql.com/downloads/) (if running locally)
+- **Git** - [Install Git](https://git-scm.com/downloads)
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd INVENTORY_SERVICE
+```
+
+### 2. Set Up Python Environment
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 3. Database Setup
+
+Create a MySQL database and table:
+
+```sql
+CREATE DATABASE inventory_db;
+USE inventory_db;
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    stock INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+## ⚙️ Configuration
+
+### Database Configuration
+
+Update the database configuration in `app.py`:
+
+```python
+db_config = {
+    'user': 'your_username',
+    'password': 'your_password',
+    'host': 'your_host',  # 'localhost' for local development
+    'database': 'inventory_db'
+}
+```
+
+### Environment Variables (Recommended)
+
+For production, use environment variables:
+
+```bash
+export DB_USER=your_username
+export DB_PASSWORD=your_password
+export DB_HOST=your_host
+export DB_NAME=inventory_db
+```
+
+## 🎯 Usage
+
+### Running Locally
+
+```bash
+# Activate virtual environment
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+
+# Run the application
+python app.py
+```
+
+The application will be available at `http://localhost:5002`
+
+### Running with Flask CLI
+
+```bash
+export FLASK_APP=app.py
+export FLASK_ENV=development  # Optional: enables debug mode
+flask run --host=0.0.0.0 --port=5002
+```
+
+## 🔌 API Endpoints
+
+### Get All Products
+
+```http
+GET /products
+```
+
+**Response:**
+```json
+[
+    {
+        "id": 1,
+        "name": "Sample Product",
+        "stock": 100,
+        "price": 29.99,
+        "created_at": "2024-01-01 12:00:00"
+    }
+]
+```
+
+### Add New Product
+
+```http
+POST /products
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+    "name": "New Product",
+    "stock": 50,
+    "price": 19.99
+}
+```
+
+**Response:**
+```json
+{
+    "message": "Product added"
+}
+```
+
+### Example Usage with cURL
+
+```bash
+# Get all products
+curl -X GET http://localhost:5002/products
+
+# Add a new product
+curl -X POST http://localhost:5002/products \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Laptop", "stock": 10, "price": 999.99}'
+```
+
+## 🐳 Docker Deployment
+
+### Build and Run with Docker
+
+```bash
+# Build the Docker image
+docker build -t inventory-service .
+
+# Run the container
+docker run -p 5000:5000 --name inventory-app inventory-service
+```
+
+### Docker Compose (Recommended)
+
+Create a `docker-compose.yml` file:
+
+```yaml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+    depends_on:
+      - db
+  
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: inventory_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+```
+
+Run with:
+```bash
+docker-compose up -d
+```
+
+## 📁 Project Structure
+
+```
+INVENTORY_SERVICE/
+├── app.py                 # Main Flask application
+├── Dockerfile            # Docker configuration
+├── requirements.txt      # Python dependencies
+├── package-lock.json     # Node.js lock file (if applicable)
+├── README.md            # Project documentation
+└── .gitignore           # Git ignore rules (recommended)
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 Development Notes
+
+- The application runs on port 5002 by default (configurable)
+- Debug mode is enabled for development
+- Database credentials should be externalized for production use
+- Consider adding input validation and error handling for production deployment
+
+## 🔒 Security Considerations
+
+- **Database Credentials**: Use environment variables instead of hardcoded passwords
+- **Input Validation**: Add proper input validation for API endpoints
+- **SQL Injection**: The current implementation uses parameterized queries to prevent SQL injection
+- **CORS**: Consider adding CORS headers if accessed from web applications
+
+## 📊 Future Enhancements
+
+- [ ] Add authentication and authorization
+- [ ] Implement product update and delete endpoints
+- [ ] Add inventory alerts and notifications
+- [ ] Include data validation and error handling
+- [ ] Add unit tests and integration tests
+- [ ] Implement logging and monitoring
+- [ ] Add API documentation with Swagger/OpenAPI
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+**Built with ❤️ for efficient inventory management**
